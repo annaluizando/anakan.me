@@ -2,10 +2,9 @@
 
 .main-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10rem;
+    margin: 15rem;
     gap: 22px;
 }
 
@@ -13,7 +12,7 @@
     color: #41B4BB;
 }
 
-html, body {
+html {
     margin: 0;
     padding: 0;
     background-color: #0A0A0C;
