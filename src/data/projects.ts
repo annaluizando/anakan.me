@@ -22,7 +22,7 @@ export const projects: ProjectProps[] = [
                                 ▐▌       `,
     description:
       "Hybrid secret rotator for cloud secret managers, actually focused on rotating jwt signin tokens.",
-    githubUrl: "https://github.com/anakan/locksmith",
+    githubUrl: "https://github.com/annaluizando/locksmith",
     technologies: ["Golang", "Bubbletea"],
   },
   {
@@ -32,7 +32,7 @@ export const projects: ProjectProps[] = [
  ██▄ ██▄ ▀▄▀ █▄█ ▄▄▀ ▀▄▄ █▄█ █ ▀█`,
     description:
       "Project infrastructure scanner to identify best approaches to improve security pipeline.",
-    githubUrl: "https://github.com/anakan/devascan",
+    githubUrl: "https://github.com/annaluizando/devascan",
     technologies: ["Typescript", "Jest"],
   },
   {
@@ -40,7 +40,7 @@ export const projects: ProjectProps[] = [
     title: "Phonebook",
     description:
       "Fullstack application built with React and TypeScript. CRUD operations for a phonebook.",
-    githubUrl: "https://github.com/anakan/phonebook-ts",
+    githubUrl: "https://github.com/annaluizando/phonebook-ts",
     technologies: ["React", "TypeScript", "Node.js", "Express", "Jest"],
   },
 ];
