@@ -17,7 +17,8 @@ export default function ProjectsPage() {
               relative bg-slate-500/5 dark:bg-white/5 backdrop-blur-md rounded-lg shadow-lg hover:shadow-xl 
               transition-all duration-300 cursor-pointer p-6 border border-slate-200/50 
               dark:border-white/10 hover:border-[#41b4bb]/50 dark:hover:border-[#41b4bb]/50
-              transform hover:-translate-y-1 hover:bg-slate-500/8 dark:hover:bg-white/10 min-h-[200px]
+              transform hover:-translate-y-1 hover:bg-slate-500/8 dark:hover:bg-white/10 
+              md:min-h-[200px] overflow-hidden
               ${
                 project.featured
                   ? "ring-2 ring-[#41b4bb]/30 ring-opacity-50"
