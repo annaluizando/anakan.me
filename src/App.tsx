@@ -20,7 +20,7 @@ export default function App() {
         <div className="min-h-screen flex flex-col bg-[#f0f0f0] dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
           <PostsProvider>
             <Router>
-              <div className="grid grid-cols-[auto_1fr] flex-grow">
+              <div className="flex flex-col md:grid md:grid-cols-[auto_1fr] flex-grow">
                 <Navbar />
                 <main className="pb-20 flex flex-col min-h-screen">
                   <div className="flex justify-end p-4">
