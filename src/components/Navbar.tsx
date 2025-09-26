@@ -179,6 +179,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
                               <a
                                 key={heading.id}
                                 href={`#${heading.id}`}
+                                onClick={closeMenu}
                                 className={`flex items-center text-slate-500 dark:text-slate-400 hover:text-[#41b4bb] transition-colors group ${
                                   heading.level === 1
                                     ? "ml-0"
