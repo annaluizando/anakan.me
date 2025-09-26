@@ -20,8 +20,8 @@ export function HomePage() {
           Welcome to anakan.me
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-          Software Engineer sharing knowledge about security, coding, and
-          technology. Helping peers learn and grow in the tech field.
+          Here you can find some of my projects and posts. Feel free to look
+          around! =)
         </p>
         <div className="flex justify-center gap-8 text-sm text-slate-500 dark:text-slate-400">
           <div className="text-center">
