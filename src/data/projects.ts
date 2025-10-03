@@ -26,19 +26,20 @@ export const projects: ProjectProps[] = [
     technologies: ["Golang", "Bubbletea"],
   },
   {
-    id: "devascan",
+    id: "aegis",
     title: `
-    .___                                               
-  __| _/_______  _______    ______ ____ _____    ____  
- / __ |/ __ \\  \\/ /\\__  \\  /  ___// ___\\\\__  \\  /    \\ 
-/ /_/ \\  ___/\\   /  / __ \\_\\___ \\\\  \\___ / __ \\|   |  \\
-\\____ |\\___  >\\_/  (____  /____  >\\___  >____  /___|  /
-     \\/    \\/           \\/     \\/     \\/     \\/     \\/ 
+          :::     :::::::::: :::::::: ::::::::::: :::::::: 
+       :+: :+:   :+:       :+:    :+:    :+:    :+:    :+: 
+     +:+   +:+  +:+       +:+           +:+    +:+         
+   +#++:++#++: +#++:++#  :#:           +#+    +#++:++#++   
+  +#+     +#+ +#+       +#+   +#+#    +#+           +#+    
+ #+#     #+# #+#       #+#    #+#    #+#    #+#    #+#     
+###     ### ########## ######## ########### ########       
      `,
     description:
       "Project infrastructure scanner to identify best approaches to improve security pipeline.",
-    githubUrl: "https://github.com/annaluizando/devascan",
-    technologies: ["Typescript", "Jest"],
+    githubUrl: "https://github.com/annaluizando/aegis",
+    technologies: ["Typescript", "Jest", "Inquirer"],
   },
   {
     id: "phonebook-ts",
