@@ -37,7 +37,7 @@ export const projects: ProjectProps[] = [
 ###     ### ########## ######## ########### ########       
      `,
     description:
-      "Project infrastructure scanner to identify best approaches to improve security pipeline.",
+      "An AI-powered command line infrastructure scanner to identify best approaches to improve your project's security pipeline.",
     githubUrl: "https://github.com/annaluizando/aegis",
     technologies: ["Typescript", "Jest", "Inquirer"],
   },
