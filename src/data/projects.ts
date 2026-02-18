@@ -5,7 +5,7 @@ export const projects: ProjectProps[] = [
     id: "blindspot",
     title: `
 █▄▄ █   █ █▄ █ █▀▄ █▀ █▀█ █▀█ ▀█▀
-█▄█ █▄▄ █ █ ▀█ █▄▀ ▄█ █▀▀ █▄█  █        
+█▄█ █▄▄ █ █ ▀█ █▄▀ ▄█ █▀▀ █▄█  █
 `,
     description:
       "TUI-based game to study secure coding principles and help students recognize insecure code.",
@@ -13,28 +13,23 @@ export const projects: ProjectProps[] = [
     technologies: ["Golang", "Bubbletea", "Cobra"],
   },
   {
-    id: "locksmith",
-    title: `
-█  ▄▄▄  ▗▞▀▘█  ▄  ▄▄▄ ▄▄▄▄  ▄    ■  ▐▌   
-█ █   █ ▝▚▄▖█▄▀  ▀▄▄  █ █ █ ▄ ▗▄▟▙▄▖▐▌   
-█ ▀▄▄▄▀     █ ▀▄ ▄▄▄▀ █   █ █   ▐▌  ▐▛▀▚▖
-█           █  █            █   ▐▌  ▐▌ ▐▌
-                                ▐▌       `,
+    id: "met-museum",
+    title: "Met Museum",
     description:
-      "Hybrid secret rotator for cloud secret managers, actually focused on rotating jwt signin tokens.",
-    githubUrl: "https://github.com/annaluizando/locksmith",
-    technologies: ["Golang", "Bubbletea"],
+      "Fullstack application built with Next.js and TypeScript. Explore over 470,000 artworks from The Metropolitan Museum of Art collection. Search, discover, and create your own art collections.",
+    githubUrl: "https://github.com/annaluizando/met-museum",
+      technologies: ["Nextjs", "TypeScript", "Node.js", "React Query", "Zustand", "Jest"],
   },
   {
     id: "aegis",
     title: `
-          :::     :::::::::: :::::::: ::::::::::: :::::::: 
-       :+: :+:   :+:       :+:    :+:    :+:    :+:    :+: 
-     +:+   +:+  +:+       +:+           +:+    +:+         
-   +#++:++#++: +#++:++#  :#:           +#+    +#++:++#++   
-  +#+     +#+ +#+       +#+   +#+#    +#+           +#+    
- #+#     #+# #+#       #+#    #+#    #+#    #+#    #+#     
-###     ### ########## ######## ########### ########       
+          :::     :::::::::: :::::::: ::::::::::: ::::::::
+       :+: :+:   :+:       :+:    :+:    :+:    :+:    :+:
+     +:+   +:+  +:+       +:+           +:+    +:+
+   +#++:++#++: +#++:++#  :#:           +#+    +#++:++#++
+  +#+     +#+ +#+       +#+   +#+#    +#+           +#+
+ #+#     #+# #+#       #+#    #+#    #+#    #+#    #+#
+###     ### ########## ######## ########### ########
      `,
     description:
       "An AI-powered command line infrastructure scanner to identify best approaches to improve your project's security pipeline.",
@@ -42,11 +37,16 @@ export const projects: ProjectProps[] = [
     technologies: ["Typescript", "Jest", "Inquirer"],
   },
   {
-    id: "phonebook-ts",
-    title: "Phonebook",
+    id: "locksmith",
+    title: `
+█  ▄▄▄  ▗▞▀▘█  ▄  ▄▄▄ ▄▄▄▄  ▄    ■  ▐▌
+█ █   █ ▝▚▄▖█▄▀  ▀▄▄  █ █ █ ▄ ▗▄▟▙▄▖▐▌
+█ ▀▄▄▄▀     █ ▀▄ ▄▄▄▀ █   █ █   ▐▌  ▐▛▀▚▖
+█           █  █            █   ▐▌  ▐▌ ▐▌
+                                ▐▌       `,
     description:
-      "Fullstack application built with React and TypeScript. CRUD operations for a phonebook.",
-    githubUrl: "https://github.com/annaluizando/phonebook-ts",
-    technologies: ["React", "TypeScript", "Node.js", "Express", "Jest"],
+      "Hybrid secret rotator for cloud secret managers, actually focused on rotating jwt signin tokens.",
+    githubUrl: "https://github.com/annaluizando/locksmith",
+    technologies: ["Golang", "Bubbletea"],
   },
 ];
