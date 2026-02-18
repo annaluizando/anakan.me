@@ -15,7 +15,8 @@
     "viewAll": "Ver todos →",
     "letsConnect": "Vamos conversar!",
     "ctaDescription": "Interessado em colaborar ou tem perguntas sobre meu trabalho?",
-    "getInTouch": "Entrar em contato"
+    "getInTouch": "Entrar em contato",
+    "post": "Post"
   },
   "posts": {
     "title": "Últimos Posts",
@@ -36,7 +37,7 @@
     "title": "Sobre",
     "description": "Saiba mais sobre mim e minha jornada"
   },
-  "common": { "morePosts": "mais posts" },
+  "common": { "morePosts": "mais posts", "morePost": "mais post" },
   "footer": { "copyright": "Construído por anakan :)" },
   "talks": {
     "title": "Palestras",

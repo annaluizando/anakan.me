@@ -1,39 +1,47 @@
 {
-  "navigation":
-    {
-      "home":"home",
-      "posts":"posts",
-      "projects":"projects",
-      "talks":"talks",
-      "about":"about"
-    },
-    "home":
-      {
-        "title":"Welcome to anakan.me",
-        "subtitle":"Here you can find some of my projects and posts. Feel free to look around! =)","posts":"Posts","projects":"Open-Source Projects","yearsCoding":"Years Coding","viewAll":"View all →","letsConnect":"Let's Connect!","ctaDescription":"Interested in collaboration or have questions about my work?","getInTouch":"Get in touch"},"posts":{"title":"Latest Posts","noPosts":"No posts found","readMore":"Read More","pageTitle":"Posts","loading":"Loading posts...","error":"Sorry, error loading post :("},"projects":{
-          "title":"Featured Projects",
-          "viewProject":"View Project",
-          "viewCode":"View Code",
-          "noProjects":"No projects found",
-          "viewOnGitHub":"View on GitHub"
-        },
-        "about":
-          {
-            "title":"About",
-            "description":"Learn more about me and my journey"
-          },
-        "common":
-          {
-            "morePosts":"more posts"
-          },
-        "footer":
-          {
-            "copyright":"Built by anakan :)"
-          },
-          "talks":
-            {
-              "title":"Talks",
-              "description":"Talks and presentations",
-              "noTalks":"No talks yet."
-            }
+  "navigation": {
+    "home": "home",
+    "posts": "posts",
+    "projects": "projects",
+    "talks": "talks",
+    "about": "about"
+  },
+  "home": {
+    "title": "Welcome to anakan.me",
+    "subtitle": "Here you can find some of my projects and posts. Feel free to look around! =)",
+    "posts": "Posts",
+    "projects": "Open-Source Projects",
+    "yearsCoding": "Years Coding",
+    "viewAll": "View all →",
+    "letsConnect": "Let's Connect!",
+    "ctaDescription": "Interested in collaboration or have questions about my work?",
+    "getInTouch": "Get in touch",
+    "post": "Post"
+  },
+  "posts": {
+    "title": "Latest Posts",
+    "noPosts": "No posts found",
+    "readMore": "Read More",
+    "pageTitle": "Posts",
+    "loading": "Loading posts...",
+    "error": "Sorry, error loading post :("
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "noProjects": "No projects found",
+    "viewOnGitHub": "View on GitHub"
+  },
+  "about": {
+    "title": "About",
+    "description": "Learn more about me and my journey"
+  },
+  "common": { "morePosts": "more posts", "morePost": "more post" },
+  "footer": { "copyright": "Built by anakan :)" },
+  "talks": {
+    "title": "Talks",
+    "description": "Talks and presentations",
+    "noTalks": "No talks yet."
+  }
 }
