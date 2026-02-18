@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import smillingFace from "../assets/smilling face.svg";
+import smilingFace from "../assets/smiling-face.svg";
 import selectionIcon from "../assets/selection-icon.png";
 import { usePosts } from "../hooks/usePosts";
 import { useTranslation } from "../hooks/useTranslation";
@@ -30,7 +30,7 @@ export default function Navbar() {
           className="flex gap-4 items-center text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
         >
           <img
-            src={smillingFace}
+            src={smilingFace}
             draggable={false}
             alt="anakan logo"
             width={56}
