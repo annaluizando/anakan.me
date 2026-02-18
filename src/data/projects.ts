@@ -16,9 +16,9 @@ export const projects: ProjectProps[] = [
     id: "met-museum",
     title: "Met Museum",
     description:
-      "Fullstack application built with Next.js and TypeScript. Explore over 470,000 artworks from The Metropolitan Museum of Art collection. Search, discover, and create your own art collections.",
+      "Explore over 470,000 artworks from The Metropolitan Museum of Art collection. Search, discover, and create your own art collections.",
     githubUrl: "https://github.com/annaluizando/met-museum",
-      technologies: ["Nextjs", "TypeScript", "Node.js", "React Query", "Zustand", "Jest"],
+      technologies: ["Nextjs", "TypeScript", "React Query", "Zustand", "Jest"],
   },
   {
     id: "aegis",
