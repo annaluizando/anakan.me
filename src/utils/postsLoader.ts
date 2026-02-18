@@ -1,7 +1,10 @@
 import { Language } from "../types/translation";
 import { PostProps } from "../types/post";
 
-function parseFrontmatter(content: string): { data: Record<string, string>; content: string } {
+function parseFrontmatter(content: string): {
+  data: Record<string, string>;
+  content: string;
+} {
   const lines = content.trim().split("\n");
 
   if (lines[0] !== "---") {
@@ -37,12 +40,13 @@ function parseFrontmatter(content: string): { data: Record<string, string>; cont
 // One folder per post: content/<slug>/en.md, content/<slug>/pt-br.md, etc.
 import aiDrivenDevelopmentEn from "../posts/content/ai-driven-development/en.md?raw";
 import aiDrivenDevelopmentPtBr from "../posts/content/ai-driven-development/pt-br.md?raw";
-import gettingStartedReactEn from "../posts/content/getting-started-with-react/en.md?raw";
 
 /** Slug -> locale -> raw markdown */
 const postLocales: Record<string, Partial<Record<Language, string>>> = {
-  "ai-driven-development": { en: aiDrivenDevelopmentEn, "pt-br": aiDrivenDevelopmentPtBr },
-  "getting-started-with-react": { en: gettingStartedReactEn },
+  "ai-driven-development": {
+    en: aiDrivenDevelopmentEn,
+    "pt-br": aiDrivenDevelopmentPtBr,
+  },
 };
 
 const DEFAULT_LOCALE: Language = "en";
@@ -58,7 +62,8 @@ export function loadPosts(): PostProps[] {
     }
 
     try {
-      const { data, content: markdownContent } = parseFrontmatter(defaultContent);
+      const { data, content: markdownContent } =
+        parseFrontmatter(defaultContent);
 
       if (!data.title || !data.description || !data.date) {
         console.warn(`Post ${slug} is missing required frontmatter fields`);
@@ -68,20 +73,23 @@ export function loadPosts(): PostProps[] {
       const postSlug = data.slug || slug;
       const translations: PostProps["translations"] = {};
 
-      (Object.entries(localeContents) as [Language, string][]).forEach(([lang, raw]) => {
-        if (lang === DEFAULT_LOCALE) return;
-        try {
-          const { data: locData, content: locContent } = parseFrontmatter(raw);
-          if (locData.title && locData.description)
-            translations[lang] = {
-              title: locData.title,
-              description: locData.description,
-              content: locContent,
-            };
-        } catch (e) {
-          console.warn(`Failed to parse translation ${slug} ${lang}`, e);
-        }
-      });
+      (Object.entries(localeContents) as [Language, string][]).forEach(
+        ([lang, raw]) => {
+          if (lang === DEFAULT_LOCALE) return;
+          try {
+            const { data: locData, content: locContent } =
+              parseFrontmatter(raw);
+            if (locData.title && locData.description)
+              translations[lang] = {
+                title: locData.title,
+                description: locData.description,
+                content: locContent,
+              };
+          } catch (e) {
+            console.warn(`Failed to parse translation ${slug} ${lang}`, e);
+          }
+        },
+      );
 
       posts.push({
         id: data.id || postSlug,
@@ -98,6 +106,6 @@ export function loadPosts(): PostProps[] {
   });
 
   return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
 }
