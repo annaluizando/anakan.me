@@ -37,8 +37,8 @@ export default function Navbar() {
             height={56}
           />
           <h1 className="font-medium text-2xl">
-            <span className="text-[#41b4bb] dark:text-slate-100">anakan</span>
-            <span className="text-[#41b4bb]">.me</span>
+            <span className="text-[#2047AD] dark:text-slate-100">anakan</span>
+            <span className="text-[#2047AD]">.me</span>
           </h1>
         </Link>
         {/* Hamburger Menu Button for mobile */}
@@ -166,7 +166,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
                   <div key={post.slug} className="space-y-1">
                     {isCurrentPost ? (
                       <>
-                        <div className="flex items-center text-[#41b4bb] font-medium">
+                        <div className="flex items-center text-[#2047AD] font-medium">
                           <span className="mr-2 text-slate-400 dark:text-slate-600">
                             ├
                           </span>
@@ -182,7 +182,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
                                 key={heading.id}
                                 href={`#${heading.id}`}
                                 onClick={closeMenu}
-                                className={`flex items-center text-slate-500 dark:text-slate-400 hover:text-[#41b4bb] transition-colors group ${
+                                className={`flex items-center text-slate-500 dark:text-slate-400 hover:text-[#2047AD] transition-colors group ${
                                   heading.level === 1
                                     ? "ml-0"
                                     : heading.level === 2
@@ -196,7 +196,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
                                     ? "└"
                                     : "├"}
                                 </span>
-                                <span className="font-mono text-xs truncate group-hover:text-[#41b4bb]">
+                                <span className="font-mono text-xs truncate group-hover:text-[#2047AD]">
                                   {heading.level === 1
                                     ? "#"
                                     : heading.level === 2
@@ -212,13 +212,13 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
                     ) : (
                       <Link
                         to={`/posts/${post.slug}`}
-                        className="flex items-center text-slate-500 dark:text-slate-400 hover:text-[#41b4bb] transition-colors group"
+                        className="flex items-center text-slate-500 dark:text-slate-400 hover:text-[#2047AD] transition-colors group"
                       >
                         <span className="mr-2 text-slate-400 dark:text-slate-600">
                           {isLast ? "└" : "├"}
                         </span>
-                        <span className="font-mono text-xs truncate group-hover:text-[#41b4bb]">
-                          /{post.slug}
+                        <span className="text-xs truncate max-w-72 block group-hover:text-[#2047AD]">
+                          {post.translations?.[language]?.title ?? post.title}
                         </span>
                       </Link>
                     )}

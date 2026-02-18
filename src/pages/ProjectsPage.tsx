@@ -14,21 +14,21 @@ export default function ProjectsPage() {
           key={project.id}
           onClick={() => handleProjectClick(project.githubUrl)}
           className={`
-              relative bg-slate-500/5 dark:bg-white/5 backdrop-blur-md rounded-lg shadow-lg hover:shadow-xl 
-              transition-all duration-300 cursor-pointer p-6 border border-slate-200/50 
-              dark:border-white/10 hover:border-[#41b4bb]/50 dark:hover:border-[#41b4bb]/50
-              transform hover:-translate-y-1 hover:bg-slate-500/8 dark:hover:bg-white/10 
+              relative bg-white/50 dark:bg-slate-800/40 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30 hover:shadow-xl 
+              transition-all duration-300 cursor-pointer p-6 border border-white/40 
+              dark:border-white/10 hover:border-[#2047AD]/40 dark:hover:border-[#2047AD]/40
+              transform hover:-translate-y-1 hover:bg-white/60 dark:hover:bg-slate-700/50 
               md:min-h-[200px] overflow-hidden
               ${
                 project.featured
-                  ? "ring-2 ring-[#41b4bb]/30 ring-opacity-50"
+                  ? "ring-2 ring-[#2047AD]/30 ring-opacity-50"
                   : ""
               }
             `}
         >
           {project.featured && (
             <div className="absolute top-4 right-4">
-              <span className="bg-[#41b4bb] text-white px-2 py-1 rounded-full text-xs font-medium">
+              <span className="bg-[#2047AD] text-white px-2 py-1 rounded-full text-xs font-medium">
                 Featured
               </span>
             </div>
@@ -46,19 +46,19 @@ export default function ProjectsPage() {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="bg-slate-500/10 dark:bg-white/10 text-slate-700 dark:text-slate-300 px-2 py-1 rounded-md text-xs font-medium border border-slate-200/50 dark:border-white/10"
+                    className="bg-white/50 dark:bg-white/10 text-slate-700 dark:text-slate-300 px-2 py-1 rounded-md text-xs font-medium border border-white/40 dark:border-white/10 backdrop-blur-sm"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-              <div className="flex items-center justify-between pt-3 border-t border-slate-200/50 dark:border-white/10">
-                <span className="text-[#41b4bb] font-medium text-sm">
+              <div className="flex items-center justify-between pt-3 border-t border-white/30 dark:border-white/10">
+                <span className="text-[#2047AD] font-medium text-sm">
                   View on GitHub
                 </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-[#41b4bb]"
+                  className="h-4 w-4 text-[#2047AD]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

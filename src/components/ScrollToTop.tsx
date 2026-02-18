@@ -32,12 +32,12 @@ export default function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-40 bg-slate-500/15 dark:bg-slate-800/80 backdrop-blur-md rounded-lg p-3 shadow-lg dark:shadow-2xl dark:shadow-slate-900/50 hover:shadow-xl hover:dark:shadow-slate-900/70 transition-all duration-300 border border-slate-200/50 dark:border-slate-600/50 hover:border-[#41b4bb]/50 dark:hover:border-[#41b4bb]/50 transform hover:-translate-y-1 hover:bg-slate-500/20 dark:hover:bg-slate-700/90 group"
+          className="fixed bottom-24 right-6 z-40 bg-slate-500/15 dark:bg-slate-800/80 backdrop-blur-md rounded-lg p-3 shadow-lg dark:shadow-2xl dark:shadow-slate-900/50 hover:shadow-xl hover:dark:shadow-slate-900/70 transition-all duration-300 border border-slate-200/50 dark:border-slate-600/50 hover:border-[#2047AD]/50 dark:hover:border-[#2047AD]/50 transform hover:-translate-y-1 hover:bg-slate-500/20 dark:hover:bg-slate-700/90 group"
           aria-label="Scroll to top"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-slate-700 dark:text-slate-200 group-hover:text-[#41b4bb] transition-colors"
+            className="h-5 w-5 text-slate-700 dark:text-slate-200 group-hover:text-[#2047AD] transition-colors"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

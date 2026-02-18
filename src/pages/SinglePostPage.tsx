@@ -40,7 +40,7 @@ export function SinglePostPage() {
         </p>
         <Link
           to="/posts"
-          className="inline-block bg-[#41b4bb] text-white px-6 py-2 rounded-lg hover:bg-[#369a9f] transition-colors"
+          className="inline-block bg-[#2047AD] text-white px-6 py-2 rounded-lg hover:bg-[#369a9f] transition-colors"
         >
           Back to Posts
         </Link>
@@ -60,7 +60,7 @@ export function SinglePostPage() {
       <div className="mb-6">
         <Link
           to="/posts"
-          className="inline-flex items-center text-[#41b4bb] hover:text-[#369a9f] transition-colors mb-4"
+          className="inline-flex items-center text-[#2047AD] hover:text-[#369a9f] transition-colors mb-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@ export function SinglePostPage() {
               </li>
             ),
             blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-[#41b4bb] pl-4 italic text-slate-600 dark:text-slate-400 my-4 font-normal">
+              <blockquote className="border-l-4 border-[#2047AD] pl-4 italic text-slate-600 dark:text-slate-400 my-4 font-normal">
                 <div className="flex">
                   <span className="text-slate-500 dark:text-slate-400 mr-2 font-mono">
                     {">"}
@@ -236,7 +236,7 @@ export function SinglePostPage() {
             a: ({ children, href }) => (
               <a
                 href={href}
-                className="text-[#41b4bb] hover:text-[#369a9f] underline transition-colors font-normal font-mono"
+                className="text-[#2047AD] hover:text-[#369a9f] underline transition-colors font-normal font-mono"
                 target="_blank"
                 rel="noopener noreferrer"
               >

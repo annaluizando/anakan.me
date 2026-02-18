@@ -16,8 +16,8 @@ export function HomePage() {
     <div className="grid gap-8 w-full px-4">
       {/* Hero Section */}
       <div className="text-center space-y-4">
-        <h1 className="font-bold text-4xl dark:text-slate-100 bg-clip-text">
-          Welcome to anakan.me
+        <h1 className="font-bold text-slate-900 text-4xl dark:text-slate-100 bg-clip-text">
+          {t("home.title")}
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
           Here you can find some of my projects and posts. Feel free to look
@@ -54,7 +54,7 @@ export function HomePage() {
               <h2 className="font-bold text-2xl">Latest Posts</h2>
               <Link
                 to="/posts"
-                className="text-[#41b4bb] hover:text-[#369a9f] font-medium text-sm transition-colors"
+                className="text-[#2047AD] hover:text-[#2153D9] font-medium text-sm transition-colors"
               >
                 View all →
               </Link>
@@ -80,7 +80,7 @@ export function HomePage() {
             <h2 className="font-bold text-2xl">Featured Projects</h2>
             <Link
               to="/projects"
-              className="text-[#41b4bb] hover:text-[#369a9f] font-medium text-sm transition-colors"
+              className="text-[#2047AD] hover:text-[#2153D9] font-medium text-sm transition-colors"
             >
               View all →
             </Link>
@@ -89,20 +89,20 @@ export function HomePage() {
             {featuredProjects.map((project) => (
               <article
                 key={project.id}
-                className="bg-slate-500/5 dark:bg-white/5 backdrop-blur-md rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-200/50 dark:border-white/10 hover:border-[#41b4bb]/50 dark:hover:border-[#41b4bb]/50 transform hover:-translate-y-1 hover:bg-slate-500/8 dark:hover:bg-white/10 min-h-[200px]"
+                className="bg-white/50 dark:bg-slate-800/40 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30 hover:shadow-xl transition-all duration-300 overflow-hidden border border-white/40 dark:border-white/10 hover:border-[#2047AD]/40 dark:hover:border-[#2047AD]/40 transform hover:-translate-y-1 hover:bg-white/60 dark:hover:bg-slate-700/50 min-h-[200px]"
               >
                 <div
                   onClick={() => handleProjectClick(project.githubUrl)}
                   className="block h-full cursor-pointer"
                 >
                   <div className="p-6 h-full flex flex-col">
-                    <h2 className="text-sm font-semibold mb-2 text-slate-900 dark:text-slate-100 hover:text-[#41b4bb] transition-colors font-mono whitespace-pre leading-tight overflow-x-auto">
+                    <h2 className="text-sm font-semibold mb-2 text-slate-900 dark:text-slate-100 hover:text-[#2047AD] transition-colors font-mono whitespace-pre leading-tight overflow-x-auto">
                       {project.title.trim()}
                     </h2>
                     <p className="text-slate-700 dark:text-slate-300 line-clamp-3 mb-4 flex-1">
                       {project.description}
                     </p>
-                    <div className="mt-auto pt-4 border-t border-slate-200/50 dark:border-white/10 flex items-center text-[#41b4bb] font-medium">
+                    <div className="mt-auto pt-4 border-t border-white/30 dark:border-white/10 flex items-center text-[#2047AD] font-medium">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 mr-2"
@@ -134,7 +134,7 @@ export function HomePage() {
       </div>
 
       {/* Call to Action */}
-      <div className="text-center bg-slate-500/5 dark:bg-white/5 backdrop-blur-md rounded-lg p-8 border border-slate-200/50 dark:border-white/10">
+      <div className="text-center bg-white/50 dark:bg-slate-800/40 backdrop-blur-xl rounded-2xl p-8 border border-white/40 dark:border-white/10 shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30">
         <h3 className="font-bold text-xl mb-3 text-slate-900 dark:text-slate-100">
           Let's Connect!
         </h3>
@@ -143,7 +143,7 @@ export function HomePage() {
         </p>
         <Link
           to="/about"
-          className="inline-flex items-center bg-[#41b4bb] hover:bg-[#369a9f] text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          className="inline-flex items-center bg-[#2047AD] hover:bg-[#2153D9] text-white px-6 py-3 rounded-lg font-medium transition-colors"
         >
           Get in touch
           <svg

@@ -9,7 +9,7 @@ export default function Post({ title, description, date, slug }: PostProps) {
   });
 
   return (
-    <article className="bg-slate-500/5 dark:bg-white/5 backdrop-blur-md rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-200/50 dark:border-white/10 hover:border-[#41b4bb]/50 dark:hover:border-[#41b4bb]/50 transform hover:-translate-y-1 hover:bg-slate-500/8 dark:hover:bg-white/10 min-h-[200px]">
+    <article className="bg-white/50 dark:bg-slate-800/40 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30 hover:shadow-xl transition-all duration-300 overflow-hidden border border-white/40 dark:border-white/10 hover:border-[#2047AD]/40 dark:hover:border-[#2047AD]/40 transform hover:-translate-y-1 hover:bg-white/60 dark:hover:bg-slate-700/50 min-h-[200px]">
       <Link to={`/posts/${slug}`} className="block h-full">
         <div className="p-6 h-full flex flex-col">
           <div className="flex items-center text-sm text-slate-600 dark:text-slate-400 mb-2">
@@ -29,14 +29,14 @@ export default function Post({ title, description, date, slug }: PostProps) {
             </svg>
             {formattedDate}
           </div>
-          <h2 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100 hover:text-[#41b4bb] transition-colors">
+          <h2 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100 hover:text-[#2047AD] transition-colors">
             {title}
           </h2>
           <p className="text-slate-700 dark:text-slate-300 line-clamp-3 mb-4 flex-1">
             {description}
           </p>
-          <div className="mt-auto pt-4 border-t border-slate-200/50 dark:border-white/10 flex items-center text-[#41b4bb] font-medium">
-            Read more
+          <div className="mt-auto pt-4 border-t border-slate-200/50 dark:border-white/10 flex items-center text-[#2047AD] font-medium">
+            {t("posts.readMore")}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 ml-1"
