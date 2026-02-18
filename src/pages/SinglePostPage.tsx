@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { usePosts } from "../hooks/usePosts";
+import { useTranslation } from "../hooks/useTranslation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -16,8 +17,11 @@ const slugify = (text: string): string => {
 export function SinglePostPage() {
   const { slug } = useParams<{ slug: string }>();
   const { posts, loading, error } = usePosts();
+  const { language } = useTranslation();
 
   const post = posts.find((p) => p.slug === slug);
+  const localized = post?.translations?.[language];
+  const content = localized?.content ?? post?.content ?? "";
 
   if (loading) return <div className="text-center p-8">Loading post...</div>;
   if (error)
@@ -44,7 +48,8 @@ export function SinglePostPage() {
     );
   }
 
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
+  const locale = language === "pt-br" ? "pt-BR" : "en-US";
+  const formattedDate = new Date(post.date).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
     day: "numeric",

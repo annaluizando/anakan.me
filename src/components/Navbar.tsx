@@ -3,6 +3,7 @@ import { useState } from "react";
 import smillingFace from "../assets/smilling face.svg";
 import selectionIcon from "../assets/selection-icon.png";
 import { usePosts } from "../hooks/usePosts";
+import { useTranslation } from "../hooks/useTranslation";
 
 // Helper function to create slug from heading text (same as in SinglePostPage)
 const slugify = (text: string): string => {
@@ -94,6 +95,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const { posts } = usePosts();
+  const { t, language } = useTranslation();
 
   const isOnSinglePost =
     currentPath.startsWith("/posts/") && currentPath !== "/posts";
@@ -124,7 +126,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
           onClick={closeMenu}
           className={currentPath === "/" ? "font-medium" : ""}
         >
-          home
+          {t("navigation.home")}
         </Link>
       </div>
 
@@ -143,7 +145,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
               : ""
           }
         >
-          posts
+          {t("navigation.posts")}
         </Link>
       </div>
 
@@ -228,7 +230,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
               <div className="flex items-center text-slate-400 dark:text-slate-600">
                 <span className="mr-2">└</span>
                 <span className="text-xs">
-                  ... {posts.length - 8} more posts
+                  ... {posts.length - 8} {t("common.morePosts")}
                 </span>
               </div>
             )}
@@ -247,7 +249,22 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
           onClick={closeMenu}
           className={currentPath === "/projects" ? "font-medium" : ""}
         >
-          projects
+          {t("navigation.projects")}
+        </Link>{" "}
+      </div>
+
+      <div className="flex items-center">
+        <div className="w-4 h-4 mr-2 flex items-center justify-center">
+          {currentPath === "/talks" && (
+            <img src={selectionIcon} alt="selected" className="w-4 h-4" />
+          )}
+        </div>
+        <Link
+          to="/talks"
+          onClick={closeMenu}
+          className={currentPath === "/talks" ? "font-medium" : ""}
+        >
+          {t("navigation.talks")}
         </Link>
       </div>
 
@@ -262,7 +279,7 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
           onClick={closeMenu}
           className={currentPath === "/about" ? "font-medium" : ""}
         >
-          about
+          {t("navigation.about")}
         </Link>
       </div>
     </menu>
