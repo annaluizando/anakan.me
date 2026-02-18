@@ -1,0 +1,46 @@
+{
+  "navigation": {
+    "home": "início",
+    "posts": "posts",
+    "projects": "projetos",
+    "talks": "palestras",
+    "about": "sobre"
+  },
+  "home": {
+    "title": "Bem-vindo ao anakan.me",
+    "subtitle": "Aqui você pode encontrar alguns dos meus projetos e posts. Sinta-se à vontade para dar uma olhada! =)",
+    "posts": "Posts",
+    "projects": "Projetos Open-Source",
+    "yearsCoding": "Anos Programando",
+    "viewAll": "Ver todos →",
+    "letsConnect": "Vamos conversar!",
+    "ctaDescription": "Interessado em colaborar ou tem perguntas sobre meu trabalho?",
+    "getInTouch": "Entrar em contato"
+  },
+  "posts": {
+    "title": "Últimos Posts",
+    "noPosts": "Nenhum post encontrado",
+    "readMore": "Ler Mais",
+    "pageTitle": "Posts",
+    "loading": "Carregando posts...",
+    "error": "Desculpe, erro ao carregar os posts :("
+  },
+  "projects": {
+    "title": "Projetos em Destaque",
+    "viewProject": "Ver Projeto",
+    "viewCode": "Ver Código",
+    "noProjects": "Nenhum projeto encontrado",
+    "viewOnGitHub": "Ver no GitHub"
+  },
+  "about": {
+    "title": "Sobre",
+    "description": "Saiba mais sobre mim e minha jornada"
+  },
+  "common": { "morePosts": "mais posts" },
+  "footer": { "copyright": "Construído por anakan :)" },
+  "talks": {
+    "title": "Palestras",
+    "description": "Palestras e apresentações",
+    "noTalks": "Nenhuma palestra ainda."
+  }
+}
