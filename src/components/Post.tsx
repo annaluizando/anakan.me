@@ -1,7 +1,9 @@
 import { PostProps } from "../types/post";
 import { Link } from "react-router-dom";
+import { useTranslation } from "../hooks/useTranslation";
 
 export default function Post({ title, description, date, slug }: PostProps) {
+  const { t } = useTranslation();
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

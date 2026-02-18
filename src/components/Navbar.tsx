@@ -105,8 +105,10 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
     ? posts.find((p) => p.slug === slug)
     : null;
 
-  const headings = currentPost?.content
-    ? [...currentPost.content.matchAll(/^(#{1,3})\s+(.+)$/gm)].map((match) => ({
+  const currentPostContent =
+    currentPost?.translations?.[language]?.content ?? currentPost?.content;
+  const headings = currentPostContent
+    ? [...currentPostContent.matchAll(/^(#{1,3})\s+(.+)$/gm)].map((match) => ({
         level: match[1].length,
         text: match[2].trim(),
         id: slugify(match[2].trim()),
@@ -170,13 +172,13 @@ const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
                           <span className="mr-2 text-slate-400 dark:text-slate-600">
                             ├
                           </span>
-                          <span className="font-mono text-xs">
-                            /{post.slug}
+                          <span className="font-mono text-xs truncate max-w-72 block">
+                            {post.translations?.[language]?.title ?? post.title}
                           </span>
                         </div>
 
                         {headings.length > 0 && (
-                          <div className="ml-4 space-y-1">
+                          <div className="ml-4 space-y-1 break-words max-w-72">
                             {headings.map((heading, headingIndex) => (
                               <a
                                 key={heading.id}

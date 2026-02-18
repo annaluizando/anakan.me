@@ -247,7 +247,7 @@ export function SinglePostPage() {
             ),
           }}
         >
-          {post.content || "No content available for this post."}
+          {content || "No content available for this post."}
         </ReactMarkdown>
       </div>
     </div>

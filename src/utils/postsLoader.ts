@@ -1,6 +1,7 @@
+import { Language } from "../types/translation";
 import { PostProps } from "../types/post";
 
-function parseFrontmatter(content: string) {
+function parseFrontmatter(content: string): { data: Record<string, string>; content: string } {
   const lines = content.trim().split("\n");
 
   if (lines[0] !== "---") {
@@ -33,49 +34,69 @@ function parseFrontmatter(content: string) {
   return { data, content: markdownContent };
 }
 
-// Import posts directly
-import customHooksPost from "../posts/content/custom-hooks-in-react.md?raw";
-import gettingStartedPost from "../posts/content/getting-started-with-react.md?raw";
+// One folder per post: content/<slug>/en.md, content/<slug>/pt-br.md, etc.
+import aiDrivenDevelopmentEn from "../posts/content/ai-driven-development/en.md?raw";
+import aiDrivenDevelopmentPtBr from "../posts/content/ai-driven-development/pt-br.md?raw";
+import gettingStartedReactEn from "../posts/content/getting-started-with-react/en.md?raw";
 
-// Map of all posts
-const postFiles = {
-  "custom-hooks-in-react.md": customHooksPost,
-  "getting-started-with-react.md": gettingStartedPost,
+/** Slug -> locale -> raw markdown */
+const postLocales: Record<string, Partial<Record<Language, string>>> = {
+  "ai-driven-development": { en: aiDrivenDevelopmentEn, "pt-br": aiDrivenDevelopmentPtBr },
+  "getting-started-with-react": { en: gettingStartedReactEn },
 };
+
+const DEFAULT_LOCALE: Language = "en";
 
 export function loadPosts(): PostProps[] {
   const posts: PostProps[] = [];
 
-  // Process each markdown file
-  Object.entries(postFiles).forEach(([filename, content]) => {
+  Object.entries(postLocales).forEach(([slug, localeContents]) => {
+    const defaultContent = localeContents[DEFAULT_LOCALE];
+    if (!defaultContent) {
+      console.warn(`Post ${slug} is missing default locale (en)`);
+      return;
+    }
+
     try {
-      const { data, content: markdownContent } = parseFrontmatter(content);
+      const { data, content: markdownContent } = parseFrontmatter(defaultContent);
 
-      const slug = filename.replace(".md", "");
-
-      // Validate required fields
       if (!data.title || !data.description || !data.date) {
-        console.warn(`Post ${filename} is missing required frontmatter fields`);
+        console.warn(`Post ${slug} is missing required frontmatter fields`);
         return;
       }
 
-      // Use slug from frontmatter if provided, otherwise use filename
       const postSlug = data.slug || slug;
+      const translations: PostProps["translations"] = {};
+
+      (Object.entries(localeContents) as [Language, string][]).forEach(([lang, raw]) => {
+        if (lang === DEFAULT_LOCALE) return;
+        try {
+          const { data: locData, content: locContent } = parseFrontmatter(raw);
+          if (locData.title && locData.description)
+            translations[lang] = {
+              title: locData.title,
+              description: locData.description,
+              content: locContent,
+            };
+        } catch (e) {
+          console.warn(`Failed to parse translation ${slug} ${lang}`, e);
+        }
+      });
 
       posts.push({
-        id: data.id || postSlug, // Use id from frontmatter or fallback to slug
+        id: data.id || postSlug,
         title: data.title,
         description: data.description,
         date: data.date,
         slug: postSlug,
         content: markdownContent,
+        ...(Object.keys(translations).length > 0 ? { translations } : {}),
       });
     } catch (error) {
-      console.error(`Error parsing post ${filename}:`, error);
+      console.error(`Error parsing post ${slug}:`, error);
     }
   });
 
-  // Sort posts by date (newest first)
   return posts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
