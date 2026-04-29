@@ -40,7 +40,7 @@ O melhor cenário aqui é aquele em que seu código está bem documentado e tem 
 
 Mesmo com tudo isso, erros podem acontecer; mas pela minha experiência, esse parece ser o melhor cenário para o uso de IA.
 
-## A IA é treinada com muitos códigos, o que significa código ruim
+## A IA é treinada com códigos, o que significa código ruim
 
 Algo sempre muito debatido na área de tech é qualidade de código, código limpo e boas práticas. Se esse debate existe, é sinal de que a maior parte do código é ruim, não é limpa e precisa de muita melhoria. Por outro lado, para ser treinada, a IA precisou do máximo de dados possível — trechos de código, casos e codebases existentes — para ter fundamentos para gerar e reproduzir código novo, o que significa código com muitas práticas de programação diferentes, em boa parte com arquiteturas e abordagens não tão limpas. Ou seja, os novos códigos gerados tendem a multiplicar más práticas, especialmente se não forem revisados por alguém que sabe o que está fazendo e o que são boas práticas.
 

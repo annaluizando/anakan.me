@@ -37,13 +37,17 @@ The best case-scenario here is one where your code is widely documented and has 
 
 Even with all that, errors may happen but from my personal experience, that seems to be the best case scenario for AI use.
 
-## AI is trained with many codes, which means bad code
+## AI is trained with codes, which means bad code
 
 One thing that where always widely debated in the tech field is code quality, clean code, good coding practices, and if that debate exists, that is a signal that code, in it's majority is bad, not clean and need many improvements. By other side, AI, to be trained, needed as much data as possible to feed itself from, existing code snippets, code cases and codebases in order to have fundaments to generate and reproduce new code, which means codes with many coding practices, mostly with not so clean architectures and approaches, which means the new codes to be generated are going to multiply the bad practices, specially if not reviewed by someone who know what they're doing and what are good practices.
 
 And when I say bad code i don't say only clean code, code repetition and good practices but also insecure code practices too, which is already being other topic widely discussed with the rise of the so-called "ai-driven developement".
 
-## Your prompts need to be good; You need to know what you're doing; You need to know what you want to do;
+## What? How? Why? 
+
+You need to know what you want to do; (What?)
+Your prompts need to be good; (How?) 
+You need to know what you're doing; (Why?)
 
 How it has already been said, AI is trained with many types of datas, even your on codebase can be messy/bad and you need to know how to manage the new code to avoid all types of undesired results.
 Bad code, code repetition, wrong business rules, you've to have a good knowledge not only in good coding practices, but also what are the business rules of your product and which results you want to generate from the new code, always be attentive if AI is alucinating, for example, trying to keep it simple, when you ask AI to generate translations, it can allucinate and create wrong translations or maybe too literal ones, also e attentive if it is creating new business rules you didn't ask for, if it is repeating code unecessarily, if it is using the best approach for something or complicating it too much, generating code that is hard to read/understand...
