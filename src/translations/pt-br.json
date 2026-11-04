@@ -8,15 +8,27 @@
   },
   "home": {
     "title": "Bem-vindo ao anakan.me",
-    "subtitle": "Aqui você pode encontrar alguns dos meus projetos e posts. Sinta-se à vontade para dar uma olhada! =)",
+    "subtitle": "Software, interfaces e ideias em construção.",
     "posts": "Posts",
-    "projects": "Projetos Open-Source",
+    "projects": "Repositórios públicos",
     "yearsCoding": "Anos Programando",
     "viewAll": "Ver todos →",
     "letsConnect": "Vamos conversar!",
     "ctaDescription": "Interessado em colaborar ou tem perguntas sobre meu trabalho?",
     "getInTouch": "Entrar em contato",
-    "post": "Post"
+    "post": "Post",
+    "code": "código,",
+    "curiosity": "curiosidade",
+    "experiments": "experimentos",
+    "eyebrow": "UM PEQUENO CANTO DA INTERNET",
+    "explore": "explorar projetos",
+    "stats": "Em números",
+    "github": {
+      "loading": "Consultando o GitHub…",
+      "ready": "Total de repositórios públicos no GitHub",
+      "stale": "Último total consultado no GitHub; atualização indisponível",
+      "unavailable": "Contagem do GitHub indisponível no momento"
+    }
   },
   "posts": {
     "title": "Últimos Posts",
@@ -24,24 +36,74 @@
     "readMore": "Ler Mais",
     "pageTitle": "Posts",
     "loading": "Carregando posts...",
-    "error": "Desculpe, erro ao carregar os posts :("
+    "error": "Desculpe, erro ao carregar os posts :(",
+    "description": "Anotações sobre software, aprendizados e perguntas pelo caminho.",
+    "onThisPage": "Neste artigo",
+    "notFound": "Post não encontrado",
+    "missing": "O post que você procura não existe.",
+    "back": "Voltar para posts",
+    "file": "arquivo",
+    "files": "arquivos",
+    "directory": "Diretório de posts"
   },
   "projects": {
     "title": "Projetos em Destaque",
     "viewProject": "Ver Projeto",
     "viewCode": "Ver Código",
     "noProjects": "Nenhum projeto encontrado",
-    "viewOnGitHub": "Ver no GitHub"
+    "viewOnGitHub": "Ver no GitHub",
+    "description": "Coisas que construo para aprender, explorar e resolver problemas.",
+    "featured": "Destaque"
   },
   "about": {
     "title": "Sobre",
-    "description": "Saiba mais sobre mim e minha jornada"
+    "description": "Saiba mais sobre mim e minha jornada",
+    "intro": "Oi! Meu apelido é anakan, mas pode me chamar de anna. :)",
+    "experience": "Sou engenheira de software com mais de 3 anos de experiência programando. Este é meu blog pessoal para compartilhar conhecimento e ajudar pessoas.",
+    "journey": "Minha jornada começou no Front-End, com TypeScript, React e Next.js. Desde então, tive a oportunidade de trabalhar com Node.js/Express e MongoDB no Back-End, Golang em programas auxiliares e outras tecnologias, o que me levou a explorar outros campos e possibilidades.",
+    "learning": "O que eu realmente amo na tecnologia é simples: aprender.",
+    "teaching": "Depois de duvidar por tanto tempo da minha capacidade de aprender qualquer coisa relacionada à tecnologia, superar isso me mostrou como é maravilhoso aprender e ensinar coisas novas, especialmente nessa área.",
+    "belief": "Por isso, não gosto de limitar o conhecimento em TI a um campo ou outro.",
+    "work": "Atualmente trabalho como engenheira de software.",
+    "study": "Estou aprimorando meus conhecimentos em Golang, CyberSecurity e Cloud (AWS/GCP).",
+    "hobbies": "Gosto de jogar e assistir a filmes quando não estou programando!",
+    "contact": "Contato"
   },
-  "common": { "morePosts": "mais posts", "morePost": "mais post" },
-  "footer": { "copyright": "Construído por anakan :)" },
+  "common": {
+    "morePosts": "mais posts",
+    "morePost": "mais post",
+    "menu": "Abrir ou fechar navegação",
+    "navigation": "Navegação principal",
+    "lightMode": "Mudar para tema claro",
+    "darkMode": "Mudar para tema escuro",
+    "language": "Idioma",
+    "skip": "Ir para o conteúdo",
+    "top": "Voltar ao topo"
+  },
+  "footer": {
+    "copyright": "Construído por anakan :)"
+  },
   "talks": {
     "title": "Palestras",
     "description": "Palestras e apresentações",
-    "noTalks": "Nenhuma palestra ainda."
+    "noTalks": "Nenhuma palestra ainda.",
+    "watch": "Assistir no YouTube",
+    "open": "Abrir palestra"
+  },
+  "music": {
+    "player": "Player de música gerada por código",
+    "play": "Tocar música",
+    "stop": "Parar música",
+    "generated": "música gerada por código",
+    "volume": "Volume da música"
+  },
+  "ascii": {
+    "title": "em boa companhia",
+    "duck": {
+      "description": "Patos explorando a água, em Dither azul.",
+      "caption": "um pouco de tudo, sempre aprendendo."
+    },
+    "loading": "chegando de mansinho…",
+    "error": "não foi possível carregar a animação."
   }
 }

@@ -1,14 +1,8 @@
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
-
+import PageHeading from "../components/PageHeading";
+import { useTranslation } from "../hooks/useTranslation";
 export default function ProjectsPage() {
-  return (
-    <div className="grid gap-4 w-full px-4">
-      <h2 className="font-bold text-3xl">Projects</h2>
-      <br />
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
-    </div>
-  );
+  const { t } = useTranslation();
+  return <div className="inner-page"><PageHeading title={t("navigation.projects")} subtitle={t("projects.description")} number="02" /><div className="project-grid projects-archive">{projects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} />)}</div></div>;
 }
