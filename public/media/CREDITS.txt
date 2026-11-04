@@ -1,0 +1,16 @@
+Ducks — anakan.me
+
+ducks.mp4: Grisha Grishkoff, "Duck Family in Water" (2022)
+https://www.pexels.com/video/duck-family-in-water-12435233/
+License: Pexels License, https://www.pexels.com/license/
+Free use and modification permitted. Author credited in the UI.
+Edits: trimmed to 10 seconds, resized to 640 px wide, 24 fps, audio removed.
+Ordered Bayer dithering is applied locally at runtime.
+Visual direction inspired by https://www.ascii-magic.com/.
+
+duck.mp4: Nicky Pe, "A Duck Swimming on a Water" (2021)
+https://www.pexels.com/video/a-duck-swimming-on-a-water-7520032/
+
+duck-run.mp4: Nicky Pe, "A Duckling Running on the Shore" (2021)
+https://www.pexels.com/video/a-duckling-running-on-the-shore-7520246/
+These two clips are trimmed to 8 seconds, with the same resolution, fps and license.

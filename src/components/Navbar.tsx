@@ -1,289 +1,32 @@
-import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import smilingFace from "../assets/smiling-face.svg";
-import selectionIcon from "../assets/selection-icon.png";
-import { usePosts } from "../hooks/usePosts";
+import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "../hooks/useTranslation";
-
-// Helper function to create slug from heading text (same as in SinglePostPage)
-const slugify = (text: string): string => {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single
-    .trim();
-};
-
+import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
+import PixelIcon from "./PixelIcon";
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // mobile menu
-
-  const closeMenu = () => setIsMenuOpen(false);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation();
+  const links = [
+    { to: "/", key: "home", icon: "home" },
+    { to: "/posts", key: "posts", icon: "document" },
+    { to: "/projects", key: "projects", icon: "folder" },
+    { to: "/talks", key: "talks", icon: "talk" },
+    { to: "/about", key: "about", icon: "smile" },
+  ] as const;
   return (
-    <nav className="sticky top-0 z-40 bg-[#f0f0f0] dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 md:h-screen md:flex md:flex-col md:border-r md:border-b-0 p-6">
-      {/* Header for both mobile and desktop */}
-      <div className="flex justify-between items-center md:mb-16">
-        <Link
-          to="/"
-          onClick={closeMenu}
-          className="flex gap-4 items-center text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-        >
-          <img
-            src={smilingFace}
-            draggable={false}
-            alt="anakan logo"
-            width={56}
-            height={56}
-          />
-          <h1 className="font-medium text-2xl">
-            <span className="text-[#2047AD] dark:text-slate-100">anakan</span>
-            <span className="text-[#2047AD]">.me</span>
-          </h1>
-        </Link>
-        {/* Hamburger Menu Button for mobile */}
-        <button
-          className="md:hidden text-slate-800 dark:text-slate-200"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* --- Mobile Menu --- */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? "max-h-screen mt-6" : "max-h-0"
-        }`}
-      >
-        <MenuContent closeMenu={closeMenu} />
-      </div>
-
-      {/* --- Desktop Menu --- */}
-      <div className="hidden md:block">
-        <MenuContent closeMenu={() => {}} />
-      </div>
-    </nav>
+    <header className="site-header">
+      <Link to="/" className="wordmark" aria-label="anakan.me — home" onClick={() => setIsMenuOpen(false)}>
+        <span className="wordmark-bracket" aria-hidden="true">[</span><span>anakan<span className="wordmark-domain">.me</span></span><span className="wordmark-bracket" aria-hidden="true">]</span>
+      </Link>
+      <span className="header-caption">ANNA / SOFTWARE ENGINEER</span>
+      <button className="menu-toggle icon-button" aria-label={t("common.menu")} aria-expanded={isMenuOpen} aria-controls="main-navigation" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {isMenuOpen ? "×" : <PixelIcon name="menu" />}
+      </button>
+      <nav id="main-navigation" aria-label={t("common.navigation")} className={`main-navigation ${isMenuOpen ? "is-open" : ""}`}>
+        {links.map(({ to, key, icon }) => <NavLink key={to} to={to} end={to === "/"} onClick={() => setIsMenuOpen(false)}><PixelIcon name={icon} /><span>{t(`navigation.${key}`)}</span></NavLink>)}
+      </nav>
+      <div className="header-controls"><ThemeToggle /><LanguageToggle /></div>
+    </header>
   );
 }
-
-// Separate component for menu content to avoid repetition
-const MenuContent = ({ closeMenu }: { closeMenu: () => void }) => {
-  const location = useLocation();
-  const currentPath = location.pathname;
-  const { posts } = usePosts();
-  const { t, language } = useTranslation();
-
-  const isOnSinglePost =
-    currentPath.startsWith("/posts/") && currentPath !== "/posts";
-  const slug = isOnSinglePost ? currentPath.split("/posts/")[1] : null;
-
-  const currentPost = isOnSinglePost
-    ? posts.find((p) => p.slug === slug)
-    : null;
-
-  const currentPostContent =
-    currentPost?.translations?.[language]?.content ?? currentPost?.content;
-  const headings = currentPostContent
-    ? [...currentPostContent.matchAll(/^(#{1,3})\s+(.+)$/gm)].map((match) => ({
-        level: match[1].length,
-        text: match[2].trim(),
-        id: slugify(match[2].trim()),
-      }))
-    : [];
-
-  return (
-    <menu className="grid gap-2 font-normal text-lg">
-      <div className="flex items-center">
-        <div className="w-4 h-4 mr-2 flex items-center justify-center">
-          {currentPath === "/" && (
-            <img src={selectionIcon} alt="selected" className="w-4 h-4" />
-          )}
-        </div>
-        <Link
-          to="/"
-          onClick={closeMenu}
-          className={currentPath === "/" ? "font-medium" : ""}
-        >
-          {t("navigation.home")}
-        </Link>
-      </div>
-
-      <div className="flex items-center">
-        <div className="w-4 h-4 mr-2 flex items-center justify-center">
-          {(currentPath === "/posts" || currentPath.startsWith("/posts/")) && (
-            <img src={selectionIcon} alt="selected" className="w-4 h-4" />
-          )}
-        </div>
-        <Link
-          to="/posts"
-          onClick={closeMenu}
-          className={
-            currentPath === "/posts" || currentPath.startsWith("/posts/")
-              ? "font-medium"
-              : ""
-          }
-        >
-          {t("navigation.posts")}
-        </Link>
-      </div>
-
-      {isOnSinglePost && posts.length > 0 && (
-        <div className="ml-6 text-sm space-y-1">
-          <div className="space-y-1 max-h-80 overflow-y-auto">
-            {posts
-              .sort(
-                (a, b) =>
-                  new Date(b.date).getTime() - new Date(a.date).getTime()
-              )
-              .slice(0, 8)
-              .map((post, index, sortedPosts) => {
-                const isCurrentPost = post.slug === slug;
-                const isLast = index === sortedPosts.length - 1;
-
-                return (
-                  <div key={post.slug} className="space-y-1">
-                    {isCurrentPost ? (
-                      <>
-                        <div className="flex items-center text-[#2047AD] font-medium">
-                          <span className="mr-2 text-slate-400 dark:text-slate-600">
-                            ├
-                          </span>
-                          <span className="font-mono text-xs truncate max-w-72 block">
-                            {post.translations?.[language]?.title ?? post.title}
-                          </span>
-                        </div>
-
-                        {headings.length > 0 && (
-                          <div className="ml-4 space-y-1 break-words max-w-72">
-                            {headings.map((heading, headingIndex) => (
-                              <a
-                                key={heading.id}
-                                href={`#${heading.id}`}
-                                onClick={closeMenu}
-                                className={`flex items-center text-slate-500 dark:text-slate-400 hover:text-[#2047AD] transition-colors group ${
-                                  heading.level === 1
-                                    ? "ml-0"
-                                    : heading.level === 2
-                                    ? "ml-2"
-                                    : "ml-4"
-                                }`}
-                              >
-                                <span className="mr-2 text-slate-400 dark:text-slate-600">
-                                  {headingIndex === headings.length - 1 &&
-                                  isLast
-                                    ? "└"
-                                    : "├"}
-                                </span>
-                                <span className="font-mono text-xs truncate group-hover:text-[#2047AD]">
-                                  {heading.level === 1
-                                    ? "#"
-                                    : heading.level === 2
-                                    ? "##"
-                                    : "###"}{" "}
-                                  {heading.text}
-                                </span>
-                              </a>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <Link
-                        to={`/posts/${post.slug}`}
-                        className="flex items-center text-slate-500 dark:text-slate-400 hover:text-[#2047AD] transition-colors group"
-                      >
-                        <span className="mr-2 text-slate-400 dark:text-slate-600">
-                          {isLast ? "└" : "├"}
-                        </span>
-                        <span className="text-xs truncate max-w-72 block group-hover:text-[#2047AD]">
-                          {post.translations?.[language]?.title ?? post.title}
-                        </span>
-                      </Link>
-                    )}
-                  </div>
-                );
-              })}
-
-            {posts.length > 8 && (
-              <div className="flex items-center text-slate-400 dark:text-slate-600">
-                <span className="mr-2">└</span>
-                <span className="text-xs">
-                  ... {posts.length - 8} {t("common.morePosts")}
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      <div className="flex items-center">
-        <div className="w-4 h-4 mr-2 flex items-center justify-center">
-          {currentPath === "/projects" && (
-            <img src={selectionIcon} alt="selected" className="w-4 h-4" />
-          )}
-        </div>
-        <Link
-          to="/projects"
-          onClick={closeMenu}
-          className={currentPath === "/projects" ? "font-medium" : ""}
-        >
-          {t("navigation.projects")}
-        </Link>{" "}
-      </div>
-
-      <div className="flex items-center">
-        <div className="w-4 h-4 mr-2 flex items-center justify-center">
-          {currentPath === "/talks" && (
-            <img src={selectionIcon} alt="selected" className="w-4 h-4" />
-          )}
-        </div>
-        <Link
-          to="/talks"
-          onClick={closeMenu}
-          className={currentPath === "/talks" ? "font-medium" : ""}
-        >
-          {t("navigation.talks")}
-        </Link>
-      </div>
-
-      <div className="flex items-center">
-        <div className="w-4 h-4 mr-2 flex items-center justify-center">
-          {currentPath === "/about" && (
-            <img src={selectionIcon} alt="selected" className="w-4 h-4" />
-          )}
-        </div>
-        <Link
-          to="/about"
-          onClick={closeMenu}
-          className={currentPath === "/about" ? "font-medium" : ""}
-        >
-          {t("navigation.about")}
-        </Link>
-      </div>
-    </menu>
-  );
-};

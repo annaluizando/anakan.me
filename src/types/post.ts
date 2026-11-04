@@ -13,6 +13,6 @@ export interface PostProps {
   date: string;
   slug: string;
   content?: string;
-  /** Localized title, description, and content by language code. */
+
   translations?: Partial<Record<Language, PostTranslation>>;
 }

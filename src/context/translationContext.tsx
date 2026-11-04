@@ -33,7 +33,7 @@ interface TranslationProviderProps {
 export const TranslationProvider = ({ children }: TranslationProviderProps) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const savedLanguage = localStorage.getItem("language") as Language;
-    const browserLanguage = navigator.language.split("-")[0] as Language;
+    const browserLanguage: Language = navigator.language.toLowerCase().startsWith("pt") ? "pt-br" : "en";
 
     return (
       (savedLanguage && savedLanguage in translations ? savedLanguage : null) ||
@@ -44,6 +44,7 @@ export const TranslationProvider = ({ children }: TranslationProviderProps) => {
 
   useEffect(() => {
     localStorage.setItem("language", language);
+    document.documentElement.lang = language === "pt-br" ? "pt-BR" : "en";
   }, [language]);
 
   const setLanguage = (lang: Language) => {

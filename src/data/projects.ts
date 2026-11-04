@@ -3,6 +3,7 @@ import { ProjectProps } from "../types/project";
 export const projects: ProjectProps[] = [
   {
     id: "blindspot",
+    name: "BLINDSPOT",
     title: `
 █▄▄ █   █ █▄ █ █▀▄ █▀ █▀█ █▀█ ▀█▀
 █▄█ █▄▄ █ █ ▀█ █▄▀ ▄█ █▀▀ █▄█  █
@@ -14,6 +15,7 @@ export const projects: ProjectProps[] = [
   },
   {
     id: "met-museum",
+    name: "Met Museum",
     title: "Met Museum",
     description:
       "Explore over 470,000 artworks from The Metropolitan Museum of Art collection. Search, discover, and create your own art collections.",
@@ -22,6 +24,7 @@ export const projects: ProjectProps[] = [
   },
   {
     id: "aegis",
+    name: "AEGIS",
     title: `
           :::     :::::::::: :::::::: ::::::::::: ::::::::
        :+: :+:   :+:       :+:    :+:    :+:    :+:    :+:
@@ -38,6 +41,7 @@ export const projects: ProjectProps[] = [
   },
   {
     id: "locksmith",
+    name: "Locksmith",
     title: `
 █  ▄▄▄  ▗▞▀▘█  ▄  ▄▄▄ ▄▄▄▄  ▄    ■  ▐▌
 █ █   █ ▝▚▄▖█▄▀  ▀▄▄  █ █ █ ▄ ▗▄▟▙▄▖▐▌
