@@ -36,12 +36,9 @@ function parseFrontmatter(content: string): {
 
   return { data, content: markdownContent };
 }
-
-// One folder per post: content/<slug>/en.md, content/<slug>/pt-br.md, etc.
 import aiDrivenDevelopmentEn from "../posts/content/ai-driven-development/en.md?raw";
 import aiDrivenDevelopmentPtBr from "../posts/content/ai-driven-development/pt-br.md?raw";
 
-/** Slug -> locale -> raw markdown */
 const postLocales: Record<string, Partial<Record<Language, string>>> = {
   "ai-driven-development": {
     en: aiDrivenDevelopmentEn,

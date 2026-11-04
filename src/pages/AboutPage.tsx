@@ -1,71 +1,21 @@
-import githubIcon from "../assets/github-icon.png";
-import linkedinIcon from "../assets/linkedin-icon.png";
-import mailIcon from "../assets/mail-icon.png";
-
+import { useTranslation } from "../hooks/useTranslation";
+import PageHeading from "../components/PageHeading";
+import PixelIcon from "../components/PixelIcon";
+import smilingFace from "../assets/smiling-face.svg";
 export function AboutPage() {
-  return (
-    <div className="grid gap-4 w-full px-4">
-      <h2 className="font-bold text-3xl">About Me</h2>
-      <br />
-      <div className="space-y-4">
-        <p>Hi there! My nickname is anakan, but you can call me anna. :)</p>
-        <p>
-          I'm a Software Engineer with 3+ years of experience in coding and this
-          is my personal blog to share knowledge and help people.
-        </p>
-
-        <p>
-          Despite the fact that my journey started doing Front-End, programming
-          with Node-related technologies as Typescript, React, Next.js, I had
-          the opportunity to work with other technologies as Node.js/Express,
-          MongoDB focusing more in Back-End, Golang for auxiliary programs and a
-          bit more, which made me explore other fields and possibilities.
-          <br />
-          What I truly love about technology is simple: learning.
-          <br />
-          After doubting my potential to learn ANYTHING related to tech for so
-          long and still having overcome that made me notice how wonderful is to
-          learn and teach new things, specially in tech.
-          <br />
-          That way, I can say I really hate when people limit IT knowledge to
-          one field or another.
-        </p>
-
-        <p>
-          - 🦎 I'm currently working as Software Engineer.
-          <br />
-          - 🪼 I'm currently improving my skills with Golang, CyberSecurity and
-          Cloud (AWS/GCP).
-          <br />- 🪻 I like gaming and watching movies when I'm not programming!
-        </p>
-
-        <div className="grid gap-4 mt-8">
-          <h2 className="font-bold text-3xl">Contact</h2>
-          <div className="flex gap-2 items-center">
-            <img width={32} height={32} src={githubIcon} alt="github icon" />
-            <a href="https://www.github.com/annaluizando">
-              github.com/annaluizando
-            </a>
-          </div>
-          <div className="flex gap-2 items-center">
-            <img
-              width={32}
-              height={32}
-              src={linkedinIcon}
-              alt="linkedin icon"
-            />
-            <a href="https://www.linkedin.com/in/annaluizando">
-              linkedin.com/in/annaluizando
-            </a>
-          </div>
-          <div className="flex gap-2 items-center">
-            <img src={mailIcon} alt="mail icon" />
-            <a href="https://www.linkedin.com/in/annaluizando">
-              contact@anakan.me
-            </a>
-          </div>
-        </div>
+  const { t } = useTranslation();
+  return <div className="inner-page"><PageHeading title={t("about.title")} subtitle={t("about.description")} number="04" />
+    <div className="about-layout">
+      <aside className="profile-note"><img className="profile-face" src={smilingFace} width={112} height={112} alt="" /><strong>anna / anakan</strong><span>software engineer</span><span className="profile-signature">always learning_<PixelIcon name="spark" /></span></aside>
+      <div className="about-copy">
+        <p className="about-intro">{t("about.intro")}</p><p>{t("about.experience")}</p><p>{t("about.journey")}</p><p>{t("about.learning")}</p><p>{t("about.teaching")}</p><p>{t("about.belief")}</p>
+        <ul className="about-now"><li>↗ {t("about.work")}</li><li>↗ {t("about.study")}</li><li>↗ {t("about.hobbies")}</li></ul>
+        <section className="contact-links"><h2>{t("about.contact")}</h2>
+          <a href="https://www.github.com/annaluizando"><span>GitHub</span>github.com/annaluizando <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/annaluizando"><span>LinkedIn</span>linkedin.com/in/annaluizando <span aria-hidden="true">↗</span></a>
+          <a href="mailto:contact@anakan.me"><span>Email</span>contact@anakan.me <span aria-hidden="true">↗</span></a>
+        </section>
       </div>
     </div>
-  );
+  </div>;
 }

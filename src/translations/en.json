@@ -8,15 +8,27 @@
   },
   "home": {
     "title": "Welcome to anakan.me",
-    "subtitle": "Here you can find some of my projects and posts. Feel free to look around! =)",
+    "subtitle": "Software, interfaces and ideas in the making.",
     "posts": "Posts",
-    "projects": "Open-Source Projects",
+    "projects": "Public repositories",
     "yearsCoding": "Years Coding",
     "viewAll": "View all →",
     "letsConnect": "Let's Connect!",
     "ctaDescription": "Interested in collaboration or have questions about my work?",
     "getInTouch": "Get in touch",
-    "post": "Post"
+    "post": "Post",
+    "code": "code,",
+    "curiosity": "curiosity",
+    "experiments": "experiments",
+    "eyebrow": "A LITTLE CORNER OF THE INTERNET",
+    "explore": "explore projects",
+    "stats": "At a glance",
+    "github": {
+      "loading": "Checking GitHub…",
+      "ready": "Total public repositories on GitHub",
+      "stale": "Last count retrieved from GitHub; refresh unavailable",
+      "unavailable": "GitHub count is currently unavailable"
+    }
   },
   "posts": {
     "title": "Latest Posts",
@@ -24,24 +36,74 @@
     "readMore": "Read More",
     "pageTitle": "Posts",
     "loading": "Loading posts...",
-    "error": "Sorry, error loading post :("
+    "error": "Sorry, error loading post :(",
+    "description": "Notes on software, things I learn and questions along the way.",
+    "onThisPage": "In this article",
+    "notFound": "Post not found",
+    "missing": "The post you’re looking for doesn’t exist.",
+    "back": "Back to posts",
+    "file": "file",
+    "files": "files",
+    "directory": "Posts directory"
   },
   "projects": {
     "title": "Featured Projects",
     "viewProject": "View Project",
     "viewCode": "View Code",
     "noProjects": "No projects found",
-    "viewOnGitHub": "View on GitHub"
+    "viewOnGitHub": "View on GitHub",
+    "description": "Things I build to learn, explore and solve problems.",
+    "featured": "Featured"
   },
   "about": {
     "title": "About",
-    "description": "Learn more about me and my journey"
+    "description": "Learn more about me and my journey",
+    "intro": "Hi there! My nickname is anakan, but you can call me anna. :)",
+    "experience": "I’m a Software Engineer with 3+ years of experience in coding and this is my personal blog to share knowledge and help people.",
+    "journey": "My journey started in Front-End, with TypeScript, React and Next.js. Since then, I’ve had the opportunity to work with Node.js/Express and MongoDB on the Back-End, Golang for auxiliary programs and more, which led me to explore other fields and possibilities.",
+    "learning": "What I truly love about technology is simple: learning.",
+    "teaching": "After doubting my potential to learn anything related to tech for so long, overcoming that showed me how wonderful it is to learn and teach new things, especially in tech.",
+    "belief": "That’s why I really dislike limiting IT knowledge to one field or another.",
+    "work": "I’m currently working as a Software Engineer.",
+    "study": "I’m improving my skills in Golang, CyberSecurity and Cloud (AWS/GCP).",
+    "hobbies": "I like gaming and watching movies when I’m not programming!",
+    "contact": "Contact"
   },
-  "common": { "morePosts": "more posts", "morePost": "more post" },
-  "footer": { "copyright": "Built by anakan :)" },
+  "common": {
+    "morePosts": "more posts",
+    "morePost": "more post",
+    "menu": "Toggle navigation",
+    "navigation": "Main navigation",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode",
+    "language": "Language",
+    "skip": "Skip to content",
+    "top": "Back to top"
+  },
+  "footer": {
+    "copyright": "Built by anakan :)"
+  },
   "talks": {
     "title": "Talks",
     "description": "Talks and presentations",
-    "noTalks": "No talks yet."
+    "noTalks": "No talks yet.",
+    "watch": "Watch on YouTube",
+    "open": "Open talk"
+  },
+  "music": {
+    "player": "Code-generated music player",
+    "play": "Play music",
+    "stop": "Stop music",
+    "generated": "code-generated music",
+    "volume": "Music volume"
+  },
+  "ascii": {
+    "title": "in good company",
+    "duck": {
+      "description": "Ducks exploring the water, rendered in blue dithering.",
+      "caption": "a little of everything, always learning."
+    },
+    "loading": "paddling into view…",
+    "error": "could not load the animation."
   }
 }

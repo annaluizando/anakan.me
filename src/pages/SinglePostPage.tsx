@@ -4,45 +4,38 @@ import { useTranslation } from "../hooks/useTranslation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-// Helper function to create slug from heading text
-const slugify = (text: string): string => {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single
-    .trim();
-};
+import ArticleIndex from "../components/ArticleIndex";
+import { slugify } from "../utils/headings";
 
 export function SinglePostPage() {
   const { slug } = useParams<{ slug: string }>();
   const { posts, loading, error } = usePosts();
-  const { language } = useTranslation();
+  const { language, t } = useTranslation();
 
   const post = posts.find((p) => p.slug === slug);
   const localized = post?.translations?.[language];
   const content = localized?.content ?? post?.content ?? "";
 
-  if (loading) return <div className="text-center p-8">Loading post...</div>;
+  if (loading) return <div className="text-center p-8">{t("posts.loading")}</div>;
   if (error)
     return (
       <div className="text-center p-8 text-red-500">
-        Sorry, error loading post :(
+        {t("posts.error")}
       </div>
     );
 
   if (!post) {
     return (
       <div className="text-center p-8">
-        <h1 className="text-2xl font-bold mb-4">Post not found</h1>
+        <h1 className="text-2xl font-bold mb-4">{t("posts.notFound")}</h1>
         <p className="text-slate-600 mb-4">
-          The post you're looking for doesn't exist.
+          {t("posts.missing")}
         </p>
         <Link
           to="/posts"
           className="inline-block bg-[#2047AD] text-white px-6 py-2 rounded-lg hover:bg-[#369a9f] transition-colors"
         >
-          Back to Posts
+          {t("posts.back")}
         </Link>
       </div>
     );
@@ -52,11 +45,12 @@ export function SinglePostPage() {
   const formattedDate = new Date(post.date).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",
+    timeZone: "UTC",
     day: "numeric",
   });
 
   return (
-    <div className="w-full px-6">
+    <div className="article-layout"><ArticleIndex content={content} slug={slug} /><article className="article-body">
       <div className="mb-6">
         <Link
           to="/posts"
@@ -76,7 +70,7 @@ export function SinglePostPage() {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          Back to Posts
+          {t("posts.back")}
         </Link>
 
         <div className="flex items-center text-sm text-slate-500 mb-4">
@@ -250,6 +244,6 @@ export function SinglePostPage() {
           {content || "No content available for this post."}
         </ReactMarkdown>
       </div>
-    </div>
+    </article></div>
   );
 }

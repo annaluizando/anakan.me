@@ -17,8 +17,7 @@ export function MusicProvider({ children }: MusicProviderProps) {
   const [currentSong] = useState("Algorithm Dreams");
   const [volume, setVolume] = useState(0.3);
   const [currentCode, setCurrentCode] =
-    useState(`// Algorithm Dreams - A journey through digital consciousness
-function dreamSequence() {
+    useState(`function dreamSequence() {
   const algorithms = ['sorting', 'searching', 'optimization'];
   const dreams = algorithms.map(alg => {
     return \`Dreaming of \${alg} in silicon sleep...\`;
@@ -31,12 +30,12 @@ class DigitalMind {
     this.thoughts = new Set();
     this.memories = [];
   }
-  
+
   think(concept) {
     this.thoughts.add(concept);
     return this.processThought(concept);
   }
-  
+
   processThought(thought) {
     const patterns = this.findPatterns(thought);
     return patterns.reduce((dream, pattern) => {
@@ -51,23 +50,8 @@ mind.think("infinite loops of creativity");`);
 
   const synthRef = useRef<Tone.PolySynth | null>(null);
   const sequenceRef = useRef<Tone.Sequence | null>(null);
-
-  // Initialize audio context and synth
   useEffect(() => {
     synthRef.current = new Tone.PolySynth(Tone.Synth).toDestination();
-    console.log("Synth initialized:", synthRef.current);
-
-    // Set initial volume
-    if (synthRef.current) {
-      synthRef.current.volume.value = Tone.gainToDb(volume);
-      console.log(
-        "Initial volume set to:",
-        volume,
-        "dB:",
-        Tone.gainToDb(volume)
-      );
-    }
-
     return () => {
       if (synthRef.current) {
         synthRef.current.dispose();
@@ -76,55 +60,42 @@ mind.think("infinite loops of creativity");`);
         sequenceRef.current.dispose();
       }
     };
-  }, [volume]);
-
-  // Update volume when it changes
+  }, []);
   useEffect(() => {
     if (synthRef.current) {
       synthRef.current.volume.value = Tone.gainToDb(volume);
       console.log("Volume updated to:", volume, "dB:", Tone.gainToDb(volume));
     }
   }, [volume]);
-
-  // Code-to-music conversion algorithm (simplified)
   const analyzeCode = (inputCode: string): CodePattern[] => {
     const lines = inputCode.split("\n").filter((line) => line.trim());
     const patterns: CodePattern[] = [];
-
-    // Musical scale (pentatonic for pleasant ambient sound)
     const scale = ["C4", "D4", "F4", "G4", "A4", "C5"];
 
     lines.forEach((line, index) => {
       const trimmedLine = line.trim();
-
-      // Analyze indentation for rhythm
       const indentation = line.length - trimmedLine.length;
       const rhythmMap = ["8n", "4n", "2n"];
       const duration = rhythmMap[Math.min(indentation / 2, 2)] || "8n";
-
-      // Map different code elements to notes
       let noteIndex = 0;
-      let velocity = 0.4; // Softer for background music
-
-      // Keywords affect pitch
+      let velocity = 0.4;
       if (
         trimmedLine.includes("function") ||
         trimmedLine.includes("const") ||
         trimmedLine.includes("let")
       ) {
-        noteIndex = 0; // Root note
+        noteIndex = 0;
         velocity = 0.5;
       } else if (trimmedLine.includes("if") || trimmedLine.includes("else")) {
-        noteIndex = 2; // Third
+        noteIndex = 2;
         velocity = 0.4;
       } else if (trimmedLine.includes("return")) {
-        noteIndex = 4; // Fifth
+        noteIndex = 4;
         velocity = 0.6;
       } else if (trimmedLine.includes("console")) {
-        noteIndex = 1; // Second
+        noteIndex = 1;
         velocity = 0.3;
       } else {
-        // Use line characteristics for variation
         const charSum = trimmedLine
           .split("")
           .reduce((sum, char) => sum + char.charCodeAt(0), 0);
@@ -144,7 +115,6 @@ mind.think("infinite loops of creativity");`);
 
   const generateMusicFromCode = (code: string) => {
     setCurrentCode(code);
-    // Song is always "Algorithm Dreams" - no user choice
   };
 
   const playMusic = async (code?: string) => {
@@ -163,12 +133,8 @@ mind.think("infinite loops of creativity");`);
         stopMusic();
         return;
       }
-
-      // Test synth with a direct note
       console.log("Testing synth with direct note...");
       synthRef.current.triggerAttackRelease("C4", "8n");
-
-      // Wait a moment then continue with sequence
       await new Promise((resolve) => setTimeout(resolve, 200));
 
       const codeToUse = code || currentCode;
@@ -180,7 +146,7 @@ mind.think("infinite loops of creativity");`);
         return;
       }
 
-      Tone.getTransport().bpm.value = 80; // Slower tempo for ambient feel
+      Tone.getTransport().bpm.value = 80;
 
       let index = 0;
       sequenceRef.current = new Tone.Sequence(
